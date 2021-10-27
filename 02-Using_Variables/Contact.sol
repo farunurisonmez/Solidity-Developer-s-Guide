@@ -3,6 +3,10 @@ pragma solidity >=0.5.0 <0.6.0;
 
 
 //2. Create contract here
+struct Person {
+  uint age = 10;
+  string name;
+}
 
 contract HelloWorld {
     uint storedData; // State variable
@@ -45,4 +49,6 @@ contract HelloWorld {
        uint result = a % b;
        return result;
    }
+
+
 }
