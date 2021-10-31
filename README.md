@@ -2,7 +2,7 @@
 Ethereum &amp; Solidity for beginners
 
 <ul>
-<li>Chapter 06 - <b>Arrays</b></li>
+<li><b>Chapter 06 -Arrays</b></li>
   <h5>Syntax:</h5>
     <p><"datatype"><"arrayname">[size] = <"initialization"></p>
     <h5>Source:</h5>
