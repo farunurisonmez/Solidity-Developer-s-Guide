@@ -13,17 +13,17 @@ pragma solidity ^0.8.0;
 contract Mapping {
     //mapping(_KeyType => _ValueType) public mappingName
     
-    mapping(string => string) public myMap;
+    mapping(string => int) public myMap;
     
-    function get(string memory key) public view returns (string memory){
-        return myMap[key];
+    function get(string memory user) public view returns (int){
+        return myMap[user];
     }
     
-    function set(string memory key, string memory value) public {
-        myMap[key] = value;
+    function set(string memory user, int level) public {
+        myMap[user] = level;
     }
     
-    function remove(string memory key) public {
-        delete myMap[key];
+    function remove(string memory user) public {
+        delete myMap[user];
     }
 }
