@@ -11,233 +11,33 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "owner",
+						"name": "previousOwner",
 						"type": "address"
 					},
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "spender",
+						"name": "newOwner",
 						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
 					}
 				],
-				"name": "Approval",
+				"name": "OwnershipTransferred",
 				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "bytes32",
-						"name": "role",
-						"type": "bytes32"
-					},
-					{
-						"indexed": true,
-						"internalType": "bytes32",
-						"name": "previousAdminRole",
-						"type": "bytes32"
-					},
-					{
-						"indexed": true,
-						"internalType": "bytes32",
-						"name": "newAdminRole",
-						"type": "bytes32"
-					}
-				],
-				"name": "RoleAdminChanged",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "bytes32",
-						"name": "role",
-						"type": "bytes32"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					}
-				],
-				"name": "RoleGranted",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "bytes32",
-						"name": "role",
-						"type": "bytes32"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					}
-				],
-				"name": "RoleRevoked",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "SpenderAdded",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "SpenderRemoved",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					}
-				],
-				"name": "Transfer",
-				"type": "event"
-			},
-			{
-				"inputs": [],
-				"name": "BURNER_ROLE",
-				"outputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "DEFAULT_ADMIN_ROLE",
-				"outputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "MINTER_ROLE",
-				"outputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "spender",
-						"type": "address"
+						"internalType": "bytes32",
+						"name": "dataHash",
+						"type": "bytes32"
 					}
 				],
-				"name": "allowance",
+				"name": "create",
 				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "spender",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "approve",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -246,12 +46,38 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "account",
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "hashForToken",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mintingCurrency",
+				"outputs": [
+					{
+						"internalType": "contract ERC20Spendable",
+						"name": "",
 						"type": "address"
 					}
 				],
-				"name": "balanceOf",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mintingPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -264,74 +90,20 @@
 			},
 			{
 				"inputs": [],
-				"name": "decimals",
+				"name": "owner",
 				"outputs": [
 					{
-						"internalType": "uint8",
+						"internalType": "address",
 						"name": "",
-						"type": "uint8"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "spender",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "subtractedValue",
-						"type": "uint256"
-					}
-				],
-				"name": "decreaseAllowance",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "bytes32",
-						"name": "role",
-						"type": "bytes32"
-					}
-				],
-				"name": "getRoleAdmin",
-				"outputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "bytes32",
-						"name": "role",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "grantRole",
+				"inputs": [],
+				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -339,102 +111,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "bytes32",
-						"name": "role",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "address",
-						"name": "account",
+						"internalType": "contract ERC20Spendable",
+						"name": "newMintingCurrency",
 						"type": "address"
 					}
 				],
-				"name": "hasRole",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "spender",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "addedValue",
-						"type": "uint256"
-					}
-				],
-				"name": "increaseAllowance",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					}
-				],
-				"name": "mint",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "name",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "bytes32",
-						"name": "role",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "renounceRole",
+				"name": "setMintingCurrency",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -442,17 +124,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "bytes32",
-						"name": "role",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
+						"internalType": "uint256",
+						"name": "newMintingPrice",
+						"type": "uint256"
 					}
 				],
-				"name": "revokeRole",
+				"name": "setMintingPrice",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -460,98 +137,13 @@
 			{
 				"inputs": [
 					{
-						"internalType": "bytes4",
-						"name": "interfaceId",
-						"type": "bytes4"
-					}
-				],
-				"name": "supportsInterface",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "symbol",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "totalSupply",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
-						"name": "recipient",
+						"name": "newOwner",
 						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
 					}
 				],
-				"name": "transfer",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "recipient",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "transferFrom",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
+				"name": "transferOwnership",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -559,56 +151,14 @@
 		"devdoc": {
 			"kind": "dev",
 			"methods": {
-				"allowance(address,address)": {
-					"details": "See {IERC20-allowance}."
+				"owner()": {
+					"details": "Returns the address of the current owner."
 				},
-				"approve(address,uint256)": {
-					"details": "See {IERC20-approve}. Requirements: - `spender` cannot be the zero address."
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
 				},
-				"balanceOf(address)": {
-					"details": "See {IERC20-balanceOf}."
-				},
-				"decimals()": {
-					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
-				},
-				"decreaseAllowance(address,uint256)": {
-					"details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
-				},
-				"getRoleAdmin(bytes32)": {
-					"details": "Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}."
-				},
-				"grantRole(bytes32,address)": {
-					"details": "Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role."
-				},
-				"hasRole(bytes32,address)": {
-					"details": "Returns `true` if `account` has been granted `role`."
-				},
-				"increaseAllowance(address,uint256)": {
-					"details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
-				},
-				"name()": {
-					"details": "Returns the name of the token."
-				},
-				"renounceRole(bytes32,address)": {
-					"details": "Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`."
-				},
-				"revokeRole(bytes32,address)": {
-					"details": "Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role."
-				},
-				"supportsInterface(bytes4)": {
-					"details": "See {IERC165-supportsInterface}."
-				},
-				"symbol()": {
-					"details": "Returns the symbol of the token, usually a shorter version of the name."
-				},
-				"totalSupply()": {
-					"details": "See {IERC20-totalSupply}."
-				},
-				"transfer(address,uint256)": {
-					"details": "See {IERC20-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`."
-				},
-				"transferFrom(address,address,uint256)": {
-					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`."
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			},
 			"version": 1
@@ -621,7 +171,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TestToken.sol": "TestToken"
+			"contracts/TestNftToken.sol": "TestToken"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -635,11 +185,18 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/TestToken.sol": {
-			"keccak256": "0x727e62803c4ec4fccdd05fba2cdfd64fab0d96ba3afae059de41d277f7ef2c5a",
+		"contracts/TestNftToken.sol": {
+			"keccak256": "0xb4fb89d18850b114a4e4283e09e69f9ff08808d9d6953817c95ff779e53a1a18",
 			"urls": [
-				"bzz-raw://c7d3135d6e00f25bab41a9bdf8225d9c460413d8992a31b205bed987bf4b8c65",
-				"dweb:/ipfs/QmawqDrmnS1uMVEhEawMSm6VjULuqNi2v3SqmBCJMCeEiv"
+				"bzz-raw://9151ab9cc3468156a62e43c59d867ae884efd5c4a4dabf8b4ded0947c242038d",
+				"dweb:/ipfs/QmRPjSw5QTAYLEfuioyLY2KfVoYmYgfXvv93AW4fqgj7r9"
+			]
+		},
+		"contracts/TestToken.sol": {
+			"keccak256": "0xa6f5963f15fd50a940d948462cebe4689912c8272ec5259d02ecbbbcf0bce547",
+			"urls": [
+				"bzz-raw://231d038c3657b62611d321856152f5ec35aaf3c88dda04485e139744a6864521",
+				"dweb:/ipfs/QmUM2DhPoLeqauXtBLZRWBTShwaqRoueePEDttchjpNNpL"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/access/AccessControl.sol": {
@@ -648,6 +205,14 @@
 			"urls": [
 				"bzz-raw://62f98a3c51ff54e1d19c8845da55415c85b4f28c81c0c3b1361eb6eaa905a0c6",
 				"dweb:/ipfs/QmTZxiScs2HXZRtscWGjBBXmG4qeFGk1Bq8FGzhbWi1wr3"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/access/Ownable.sol": {
+			"keccak256": "0x1cae4f85f114ff17b90414f5da67365b1d00337abb5bce9bf944eb78a2c0673c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d5ff16b336ce8f906478d5f2eecc6435e00833bdc0b92f6b209cf9e92cb5b2b7",
+				"dweb:/ipfs/QmRD1rAZEqQ73C33cdA3QoUyBDMEWnNKNMc6PNkAZWHeQQ"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/token/ERC20/ERC20.sol": {

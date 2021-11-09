@@ -199,6 +199,19 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "addSpender",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "owner",
 						"type": "address"
 					},
@@ -385,6 +398,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "isSpender",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -416,6 +448,13 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "renounceSpender",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "bytes32",
@@ -430,6 +469,30 @@
 				],
 				"name": "revokeRole",
 				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "spend",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -613,10 +676,10 @@
 	},
 	"sources": {
 		"contracts/TestToken.sol": {
-			"keccak256": "0x727e62803c4ec4fccdd05fba2cdfd64fab0d96ba3afae059de41d277f7ef2c5a",
+			"keccak256": "0xa6f5963f15fd50a940d948462cebe4689912c8272ec5259d02ecbbbcf0bce547",
 			"urls": [
-				"bzz-raw://c7d3135d6e00f25bab41a9bdf8225d9c460413d8992a31b205bed987bf4b8c65",
-				"dweb:/ipfs/QmawqDrmnS1uMVEhEawMSm6VjULuqNi2v3SqmBCJMCeEiv"
+				"bzz-raw://231d038c3657b62611d321856152f5ec35aaf3c88dda04485e139744a6864521",
+				"dweb:/ipfs/QmUM2DhPoLeqauXtBLZRWBTShwaqRoueePEDttchjpNNpL"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/access/AccessControl.sol": {

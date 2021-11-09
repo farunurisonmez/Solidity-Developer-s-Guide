@@ -19,11 +19,37 @@ contract SpenderRole is ERC20, AccessControl {
         _addSpender(msg.sender);
     }
     
+    modifier onlySpender(){
+        require(isSpender(msg.sender));
+        _;
+    }
+    
+    function isSpender(address account) public view returns (bool){
+        return hasRole(BURNER_ROLE, msg.sender);
+    }
+    
+    function addSpender(address account) public onlySpender {
+        _addSpender(account);
+    }
+    
+    
     function _addSpender(address account) internal {
         grantRole(BURNER_ROLE,account);
         emit SpenderAdded(account);
     }
     
+     function renounceSpender() public {
+        _removeSpender(msg.sender);
+    }
+    
+    function _removeSpender(address account) internal {
+        revokeRole(BURNER_ROLE,account);
+        emit SpenderRemoved(account);
+    }
+    
+    function decimals() public view virtual override returns (uint8) {
+        return 0;
+    }
 }
 
 /** 
@@ -31,12 +57,16 @@ contract SpenderRole is ERC20, AccessControl {
  **/
  
  contract ERC20Spendable is SpenderRole {
-
+     function spend(address from, uint256 value) public onlySpender returns(bool) {
+        _burn(from, value);
+        return true;
+    }
 }
 
 contract TestToken is SpenderRole {
     function mint(address to, uint256 value) public returns(bool){
         _mint(to, value);
+   
         return true;
     }
 }
