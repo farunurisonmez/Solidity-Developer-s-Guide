@@ -199,19 +199,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "addSpender",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "owner",
 						"type": "address"
 					},
@@ -398,25 +385,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "isSpender",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -448,13 +416,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "renounceSpender",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "bytes32",
@@ -469,30 +430,6 @@
 				],
 				"name": "revokeRole",
 				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					}
-				],
-				"name": "spend",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -635,16 +572,6 @@
 				"revokeRole(bytes32,address)": {
 					"details": "Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role."
 				},
-				"spend(address,uint256)": {
-					"details": "Function to mint tokens",
-					"params": {
-						"from": "The address that will spend the tokens",
-						"value": "The amount of tokens to spend"
-					},
-					"returns": {
-						"_0": "A boolean that indicates if the operation was successful*"
-					}
-				},
 				"supportsInterface(bytes4)": {
 					"details": "See {IERC165-supportsInterface}."
 				},
@@ -686,10 +613,10 @@
 	},
 	"sources": {
 		"contracts/TestToken.sol": {
-			"keccak256": "0x43f9211a0d62e2faa01cb3ae3739895c72d1b78e878aaae495a7463c01395983",
+			"keccak256": "0x727e62803c4ec4fccdd05fba2cdfd64fab0d96ba3afae059de41d277f7ef2c5a",
 			"urls": [
-				"bzz-raw://a56872c98889a57c6b90c524031e0babcedf36d52352677f369d6c5c4c3c7f24",
-				"dweb:/ipfs/QmPhzu4NbgFc4K81pei4roNPBymri3pBooMCbwLge4WDEU"
+				"bzz-raw://c7d3135d6e00f25bab41a9bdf8225d9c460413d8992a31b205bed987bf4b8c65",
+				"dweb:/ipfs/QmawqDrmnS1uMVEhEawMSm6VjULuqNi2v3SqmBCJMCeEiv"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/access/AccessControl.sol": {

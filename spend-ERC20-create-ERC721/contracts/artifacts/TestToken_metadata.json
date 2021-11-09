@@ -199,19 +199,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "addSpender",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "owner",
 						"type": "address"
 					},
@@ -401,25 +388,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "account",
-						"type": "address"
-					}
-				],
-				"name": "isSpender",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "to",
 						"type": "address"
 					},
@@ -467,13 +435,6 @@
 					}
 				],
 				"name": "renounceRole",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "renounceSpender",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -675,10 +636,10 @@
 	},
 	"sources": {
 		"contracts/TestToken.sol": {
-			"keccak256": "0x43f9211a0d62e2faa01cb3ae3739895c72d1b78e878aaae495a7463c01395983",
+			"keccak256": "0x727e62803c4ec4fccdd05fba2cdfd64fab0d96ba3afae059de41d277f7ef2c5a",
 			"urls": [
-				"bzz-raw://a56872c98889a57c6b90c524031e0babcedf36d52352677f369d6c5c4c3c7f24",
-				"dweb:/ipfs/QmPhzu4NbgFc4K81pei4roNPBymri3pBooMCbwLge4WDEU"
+				"bzz-raw://c7d3135d6e00f25bab41a9bdf8225d9c460413d8992a31b205bed987bf4b8c65",
+				"dweb:/ipfs/QmawqDrmnS1uMVEhEawMSm6VjULuqNi2v3SqmBCJMCeEiv"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/access/AccessControl.sol": {
