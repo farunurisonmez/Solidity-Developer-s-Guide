@@ -14,7 +14,7 @@ contract SpenderRole is ERC20, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
     
-    constructor() ERC20("TEST Token", "TEST") {
+    constructor() ERC20("Test Token", "TEST") {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _addSpender(msg.sender);
     }
@@ -25,13 +25,12 @@ contract SpenderRole is ERC20, AccessControl {
     }
     
     function isSpender(address account) public view returns (bool){
-        return hasRole(BURNER_ROLE, msg.sender);
+        return hasRole(BURNER_ROLE, account);
     }
     
     function addSpender(address account) public onlySpender {
         _addSpender(account);
     }
-    
     
     function _addSpender(address account) internal {
         grantRole(BURNER_ROLE,account);
@@ -50,6 +49,11 @@ contract SpenderRole is ERC20, AccessControl {
     function decimals() public view virtual override returns (uint8) {
         return 0;
     }
+
+    function spend2(address from, uint256 value) public onlySpender returns(bool) {
+        _burn(from, value);
+        return true;
+    }
 }
 
 /** 
@@ -57,7 +61,7 @@ contract SpenderRole is ERC20, AccessControl {
  **/
  
  contract ERC20Spendable is SpenderRole {
-     function spend(address from, uint256 value) public onlySpender returns(bool) {
+    function spend(address from, uint256 value) public onlySpender returns(bool) {
         _burn(from, value);
         return true;
     }
@@ -66,7 +70,6 @@ contract SpenderRole is ERC20, AccessControl {
 contract TestToken is SpenderRole {
     function mint(address to, uint256 value) public returns(bool){
         _mint(to, value);
-   
         return true;
     }
 }
