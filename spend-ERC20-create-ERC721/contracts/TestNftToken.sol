@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/token/ERC721/ERC721.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/access/Ownable.sol";
 
-import { ERC20Spendable } from "./TestToken.sol";
+import { TestToken } from "./TestToken.sol";
 
 contract TestNftToken is ERC721, Ownable {
     
@@ -12,7 +12,7 @@ contract TestNftToken is ERC721, Ownable {
     
     uint256 _mintingPrice;
     
-    ERC20Spendable _mintingCurrency;
+    TestToken _mintingCurrency;
     
     uint256 nextCertificateId = 1;
     
@@ -26,7 +26,7 @@ contract TestNftToken is ERC721, Ownable {
         return _mintingPrice;
     }
     
-    function mintingCurrency() external view returns (ERC20Spendable) {
+    function mintingCurrency() external view returns (TestToken) {
         return _mintingCurrency;
     }
     
@@ -34,12 +34,12 @@ contract TestNftToken is ERC721, Ownable {
         _mintingPrice = newMintingPrice;
     }
     
-    function setMintingCurrency(ERC20Spendable newMintingCurrency) onlyOwner external {
+    function setMintingCurrency(TestToken newMintingCurrency) onlyOwner external {
         _mintingCurrency = newMintingCurrency;
     }
     
     function create(bytes32 dataHash) external returns (uint) {
-        _mintingCurrency.spend(msg.sender, 1);
+        _mintingCurrency.burn(_mintingPrice);
         uint256 newCertificateId = nextCertificateId;
         _mint(msg.sender, newCertificateId);
         certificateDataHashes[newCertificateId] = dataHash;
