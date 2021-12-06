@@ -126,6 +126,20 @@ contract Reserve is IERC721Receiver {
         return randomIDs;
     }
 
+    function cancelListing(uint256 tokenId) public {
+        Listing storage listing = tokenIdToListing[tokenId][
+            getListingHistorySize(tokenId) - 1
+        ];
+        require(listing.open, "This listing is already closed.");
+        require(
+            msg.sender == listing.seller,
+            "Only the seller can close this listing"
+        );
+        require(msg.sender != address(0));
+        nftContract.safeTransferFrom(address(this), listing.seller, tokenId);
+        listing.open = false;
+    }
+
     function transferNft(uint256 tokenId, address to) public {
         require(
             msg.sender == owner,
