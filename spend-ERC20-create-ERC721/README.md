@@ -1,5 +1,9 @@
 REMIX TEST ERC20<->ERC721 TOKEN PROJECT
 
+<p align="center">
+  <img src="https://storage.googleapis.com/fns-blog/public/frontend/assets/images/document/SolidityExamples/spend-ERC20/DApp-ERC20.png" />
+</p>
+
 Remix example project is present when Remix loads very first time or there are no files existing in the File Explorer.
 It contains 3 directories:
 
