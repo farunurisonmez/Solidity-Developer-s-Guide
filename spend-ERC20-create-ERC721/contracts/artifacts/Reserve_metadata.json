@@ -80,6 +80,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "create",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -667,25 +680,25 @@
 	},
 	"sources": {
 		"contracts/TestNftToken.sol": {
-			"keccak256": "0x8dc3ad6e7279c3d47569690e600c69646b90c63f1b538e28e443f3b37f5c24a7",
+			"keccak256": "0xb84308cd3596d9457adca133831d7c6e81900b286117f50b11d4e7dccaa14f73",
 			"urls": [
-				"bzz-raw://064d899170f27fd885f3014cdd8606c4d7e625cc4c2977c6ffbf52373f435c9d",
-				"dweb:/ipfs/Qmczg3ytZFReQ4Gj1JBRsyxgBgSF9iBNeGRVDfcTPGhsVm"
+				"bzz-raw://494d8069835667d476555cad2926cbb44e0b131cbbe1e078cecbf8f00bfb6890",
+				"dweb:/ipfs/QmX2fRXRtqa4esLDnW9MakM56a7B4xKjfMdR4eqo5VBTWq"
 			]
 		},
 		"contracts/TestReserveToken.sol": {
-			"keccak256": "0x4e4afff2f1fb9cad92fee5870d69cce2fc8a0e1517e77b6203917bb39dbdc30b",
+			"keccak256": "0x9969efb0f5ad1d5aa3f9b845b4aa3fbba7a22d2610d125fc35515e812db9e613",
 			"urls": [
-				"bzz-raw://f8a8c4bc82022adb8b8d3cc47cca47e06fec86bf6d7f46a5bedc036ca92e310f",
-				"dweb:/ipfs/QmaghV3x8CKwpZ6wUkWnvvc3FoaByxZ6Zamp24XzoJu58J"
+				"bzz-raw://f32e22749dedabca3279c16a3a2b3a4c7351a6ade9313302533e224b916c70d4",
+				"dweb:/ipfs/QmXAZE3AZ4hE9dm8c9bJE3Ma7VhYhM1LXdFmB9xEcgh7hr"
 			]
 		},
 		"contracts/TestToken.sol": {
-			"keccak256": "0x28de355816eb33871a1e958bd7f6fd6ed7e458280a718e09051220bd92e0458f",
+			"keccak256": "0x4a63dab914bf5fbf0809b389a84845485400945d3ddb82ac6772025e713fdfce",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://607e930458cbd1d2de937d153ac8eee162d0ddbf142b75da61fb205003d6d873",
-				"dweb:/ipfs/QmdrtEh1VYncwyrB5kJbSxSGghE5g6wH5P5BCvV4PxEwqE"
+				"bzz-raw://56eb4a09bef784cd491751cf7c675c537268031a4adbbbd542ef1132fd49a8c2",
+				"dweb:/ipfs/QmeY4qk8tNngGQKjFpgQaGZC2tYpBaxra5xwJuU3iWiC2v"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.1.0/contracts/access/AccessControl.sol": {

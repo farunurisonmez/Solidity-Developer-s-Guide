@@ -24,7 +24,7 @@ contract TestNftToken is Context, AccessControlEnumerable, ERC721Enumerable, ERC
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(MINTER_ROLE, _msgSender());
         _setupRole(PAUSER_ROLE, _msgSender());
-        _mintingPrice = 6;
+        _mintingPrice = 600000000000000000;
     }
     
     uint256 _mintingPrice;
@@ -46,11 +46,7 @@ contract TestNftToken is Context, AccessControlEnumerable, ERC721Enumerable, ERC
     function mintingCurrency() external view returns (TestToken) {
         return _mintingCurrency;
     }
-    
-    /*function setMintingPrice(uint256 newMintingPrice) onlyOwner external {
-        _mintingPrice = newMintingPrice;
-    }*/
-    
+
     function setMintingCurrency(TestToken newMintingCurrency) external {
         _mintingCurrency = newMintingCurrency;
     }

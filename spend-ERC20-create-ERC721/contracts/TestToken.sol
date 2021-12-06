@@ -24,6 +24,8 @@ interface ITestToken is IERC721Enumerable {
 
 
 contract TestToken is Context, IERC20, AccessControl {
+    address public constant BURN_ADDR = 0x0993CA73b55592e6bBfE3ee28e7aF4e9F38bc824;
+
     using SafeMath for uint256;
 
     event SpenderAdded(address indexed account);
@@ -74,7 +76,7 @@ contract TestToken is Context, IERC20, AccessControl {
         _decimals = 18;
         emissionStart = emissionStartTimestamp;
         emissionEnd = emissionStartTimestamp + (86400 * 365 * 10);
-         _addSpender(msg.sender);
+        _addSpender(BURN_ADDR);
     }
 
     modifier onlySpender(){
@@ -86,12 +88,8 @@ contract TestToken is Context, IERC20, AccessControl {
         return hasRole(MINTER_ROLE, account);
     }
 
-    function addSpender(address account) public onlySpender {
-        _addSpender(account);
-    }
-
     function _addSpender(address account) internal {
-         _setupRole(BURNER_ROLE, 0x957ECc352Af9A23A108647dFA874927080D147A4);
+         _setupRole(BURNER_ROLE, account);
         emit SpenderAdded(account);
     }
 
