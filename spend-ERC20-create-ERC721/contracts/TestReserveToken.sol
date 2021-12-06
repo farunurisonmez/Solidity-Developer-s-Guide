@@ -3,14 +3,7 @@ pragma solidity ^0.8.0;
 import "../contracts/TestNftToken.sol";
 
 contract Reserve is IERC721Receiver {
-
-    struct Commit {
-        uint64 block;
-        uint64 amount;
-    }
     
-    mapping (address => Commit) public commits;
-
     struct Listing {
         bool open;
         bool sold;
@@ -20,13 +13,11 @@ contract Reserve is IERC721Receiver {
     }
 
     TestNftToken nftContract;
-
     TestToken _mintingCurrency;
 
     address payable owner;
 
     mapping(uint256 => Listing) listings;
-
     mapping(uint256 => Listing[]) tokenIdToListing;
 
     uint256 numListings;
@@ -36,10 +27,10 @@ contract Reserve is IERC721Receiver {
         numListings = 0;
         nftContract = TestNftToken(tokenAddress);
         owner = payable(msg.sender);
-        _mintingPrice = 600000000000000000;
+        _randomlyMintingPrice = 600000000000000000;
     }
 
-    uint256 _mintingPrice;
+    uint256 _randomlyMintingPrice;
 
     function getNftContract() public view returns (address) {
         return address(nftContract);
@@ -77,15 +68,12 @@ contract Reserve is IERC721Receiver {
         listing.open = false;
         listing.sold = true;
     }
-  
     
     function randomBuy() public payable {
-         _mintingCurrency.burn(_mintingPrice);
         uint256[] memory _tokenIDs = randomId();
-
         for (uint256 i = 0; i < _tokenIDs.length; i++) { 
             Listing storage listing = tokenIdToListing[listings[_tokenIDs[i]].tokenId][getListingHistorySize(listings[_tokenIDs[i]].tokenId) - 1];
-            
+            nftContract.mintingCurrency().burn(_randomlyMintingPrice);
             require(msg.sender != listing.seller, "You cannot buy your own item.");
             require(listing.open, "This listing has been closed.");
             require(msg.value >= listing.price, "Not enough paid");
@@ -219,10 +207,5 @@ contract Reserve is IERC721Receiver {
 
     function getLastListingByTokenId(uint256 tokenId) public view returns (Listing memory) {
         return getListingHistoryByTokenId(tokenId, getListingHistorySize(tokenId) - 1);
-    }
-
-    function create() external returns (bool) {
-        nftContract.mintingCurrency().burn(_mintingPrice);
-        return true;
     }
 }

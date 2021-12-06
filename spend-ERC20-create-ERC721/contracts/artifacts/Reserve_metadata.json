@@ -58,43 +58,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "commits",
-				"outputs": [
-					{
-						"internalType": "uint64",
-						"name": "block",
-						"type": "uint64"
-					},
-					{
-						"internalType": "uint64",
-						"name": "amount",
-						"type": "uint64"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "create",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "uint256",
 						"name": "tokenId",
 						"type": "uint256"
@@ -687,10 +650,10 @@
 			]
 		},
 		"contracts/TestReserveToken.sol": {
-			"keccak256": "0x9969efb0f5ad1d5aa3f9b845b4aa3fbba7a22d2610d125fc35515e812db9e613",
+			"keccak256": "0x34724b7c1b9b15cde0bb295d1aea3cc5eb8d6c05bc522f0eb916de4d03bca745",
 			"urls": [
-				"bzz-raw://f32e22749dedabca3279c16a3a2b3a4c7351a6ade9313302533e224b916c70d4",
-				"dweb:/ipfs/QmXAZE3AZ4hE9dm8c9bJE3Ma7VhYhM1LXdFmB9xEcgh7hr"
+				"bzz-raw://6ac699ebdcd270a4775df31c45c37c11a02909ce8c2b3d574fa9918933684c32",
+				"dweb:/ipfs/QmdGEibWKTQt6ePA7vr8Wun1DAozpoKJGw7DPXErAntvoJ"
 			]
 		},
 		"contracts/TestToken.sol": {
