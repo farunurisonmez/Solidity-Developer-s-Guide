@@ -24,20 +24,13 @@ contract TestNftToken is Context, AccessControlEnumerable, ERC721Enumerable, ERC
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(MINTER_ROLE, _msgSender());
         _setupRole(PAUSER_ROLE, _msgSender());
-        _mintingPrice = 600000000000000000;
     }
     
     uint256 _mintingPrice;
     
     TestToken _mintingCurrency;
     
-    uint256 nextCertificateId = 1;
-    
-    mapping(uint256 => bytes32) certificateDataHashes;
 
-    function hashForToken(uint256 tokenId) external view returns (bytes32) {
-        return certificateDataHashes[tokenId];
-    }
     
     function mintingPrice() external view returns (uint256) {
         return _mintingPrice;
@@ -94,14 +87,5 @@ contract TestNftToken is Context, AccessControlEnumerable, ERC721Enumerable, ERC
     function tokenURI(uint256 tokenId) override public view returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         return string(abi.encodePacked(_baseTokenURI, _tokenURIs[tokenId]));
-    }
-
-    function create(bytes32 dataHash) external returns (uint) {
-        _mintingCurrency.burn(_mintingPrice);
-        uint256 newCertificateId = nextCertificateId;
-        _mint(msg.sender, newCertificateId);
-        certificateDataHashes[newCertificateId] = dataHash;
-        nextCertificateId = nextCertificateId + 1;
-        return newCertificateId;
     }
 }

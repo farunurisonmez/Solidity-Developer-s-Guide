@@ -24,7 +24,7 @@ interface ITestToken is IERC721Enumerable {
 
 
 contract TestToken is Context, IERC20, AccessControl {
-    address public constant BURN_ADDR = 0x0993CA73b55592e6bBfE3ee28e7aF4e9F38bc824;
+    address public constant BURN_ADDR = 0x0548BDebc4D7e14aA11BaC764672f166CAf8593d;
 
     using SafeMath for uint256;
 

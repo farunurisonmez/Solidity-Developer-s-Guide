@@ -294,25 +294,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "bytes32",
-						"name": "dataHash",
-						"type": "bytes32"
-					}
-				],
-				"name": "create",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "uint256",
 						"name": "tokenId",
 						"type": "uint256"
@@ -428,25 +409,6 @@
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
-				"name": "hashForToken",
-				"outputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
 					}
 				],
 				"stateMutability": "view",
@@ -952,10 +914,10 @@
 	},
 	"sources": {
 		"contracts/TestNftToken.sol": {
-			"keccak256": "0xb84308cd3596d9457adca133831d7c6e81900b286117f50b11d4e7dccaa14f73",
+			"keccak256": "0x2195003ca95b3c136baabf3dff9bd64824390dcf1bf693a2bee0043634a3aea6",
 			"urls": [
-				"bzz-raw://494d8069835667d476555cad2926cbb44e0b131cbbe1e078cecbf8f00bfb6890",
-				"dweb:/ipfs/QmX2fRXRtqa4esLDnW9MakM56a7B4xKjfMdR4eqo5VBTWq"
+				"bzz-raw://3d06edec8d8da79c02caf61ac0cb137bc645d20cb929aca472acb05cdbab63b6",
+				"dweb:/ipfs/Qmf8JSznmoW2tcq3xQT7DQcpoRSQBMo8ibPEpQYTsUWuC1"
 			]
 		},
 		"contracts/TestToken.sol": {

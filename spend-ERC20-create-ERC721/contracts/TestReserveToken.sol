@@ -78,9 +78,7 @@ contract Reserve is IERC721Receiver {
             require(listing.open, "This listing has been closed.");
             require(msg.value >= listing.price, "Not enough paid");
             listing.seller.transfer(msg.value);
-            nftContract.safeTransferFrom(address(this), msg.sender, listings[_tokenIDs[i]].tokenId);
-            nftContract.create(0x05416460deb76d57af601be17e777b93592d8d4d4a4096c57876a91c84f4a712);
-            
+            nftContract.safeTransferFrom(address(this), msg.sender, listings[_tokenIDs[i]].tokenId);            
             listing.open = false;
             listing.sold = true;
             if (listing.sold == true)
