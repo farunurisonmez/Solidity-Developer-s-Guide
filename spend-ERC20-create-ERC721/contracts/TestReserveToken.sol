@@ -140,6 +140,7 @@ contract Reserve is IERC721Receiver {
         listing.open = false;
     }
 
+    // Emergency function for handling smart contract errors
     function transferNft(uint256 tokenId, address to) public {
         require(
             msg.sender == owner,
@@ -148,6 +149,7 @@ contract Reserve is IERC721Receiver {
         nftContract.safeTransferFrom(address(this), to, tokenId);
     }
 
+    // Emergency function for handling smart contract errors
     function transferFunds(uint256 amount, address payable to) public {
         require(
             msg.sender == owner,
